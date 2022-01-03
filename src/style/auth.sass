@@ -1,0 +1,66 @@
+.auth-wrapper
+    padding: 3rem
+    margin-top: 3rem
+    h2
+        text-align: center
+        margin-bottom: 2rem
+        font-size: $f-20
+    p
+        font-size: 1.4rem
+        font-weight: $medium
+        letter-spacing: 1px
+        margin-bottom: 1rem
+        a
+            color: inherit
+            font-weight: $bold
+    .submit-btn
+        display: block
+        width: 100%
+        border-radius: 4px
+        padding: 1.5rem 1rem
+        font-size: 1.6rem
+        margin-bottom: 2rem
+        
+    &.dark-auth-wrapper
+        border: 1px solid rgba(225,225 ,225 ,0.3 )
+        background: $dark
+        h2, p
+            color: #fff
+        .submit-btn
+            background: #fff
+            color: $dark
+    &.light-auth-wrapper
+        border-bottom: 1px solid rgba(0,0 ,0 ,0.2 )
+        background: rgba(225,225 ,225 ,0.2 )
+        h2,p
+            color: $dark
+        .submit-btn
+            background: $dark
+            color: #fff
+.input-wrapper
+    display: block
+    margin-bottom: 2rem
+    padding: 1rem
+    border-radius: 4px
+    box-sizing: border-box
+    span
+        display: block
+    .label
+        font-size: $f-14
+        font-weight: $medium
+        &::first-letter
+            text-transform: uppercase
+    input
+        width: 100%
+        font-size: $f-14
+        letter-spacing: 1px
+        margin-top: 1px
+        
+    &.dark-input
+        border: 1px solid rgba(225,225 ,225 ,0.3 )
+        .label,input
+            color: #fff
+    &.light-input
+        border-bottom: 1px solid rgba(0,0 ,0 ,0.2 )
+        .label,input
+            color: $dark

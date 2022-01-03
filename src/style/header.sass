@@ -1,0 +1,129 @@
+.theme-btn
+    display: block
+    padding: 1rem 2rem
+    text-transform: capitalize
+    font-weight: $bold
+.header-wrapper
+    display: flex
+    align-items: center
+    justify-content: space-between
+    a
+        display: block
+    .logo-holder
+        flex: 1
+        margin-top: 2rem
+        margin-bottom: 2rem
+.logo
+    font-size: 2.4rem
+    @media #{ $tablet }
+        font-size: 3rem
+    span
+        font-family: 'Vujahday Script', cursive
+    &.dark-logo
+        color: #fff
+    &.light-logo
+        color: $dark
+            
+
+
+.navigation
+    display: flex
+    align-items: center
+    justify-content: center
+    flex: 1
+    a
+        padding: 2rem 1rem
+        font-size: 1.4rem
+        font-weight: $bold
+        letter-spacing: 1px
+        @media #{ $tablet }
+            padding: 3rem 2rem
+            font-size: 1.8rem
+.profile-wrapper
+    flex: 1
+    display: flex
+    justify-content: flex-end
+.profile-dropdown
+    position: relative
+    .drop-wrapper
+        position: absolute
+        right: 0
+        bottom: -85px
+        width: 120px
+        background: #fff
+        border-radius: 4px
+        .drop-list
+            height: 0
+            padding: 1rem 0
+            overflow: hidden
+            transition: height 0.3s ease
+            &.drop
+                height: 80px
+                
+        li
+            
+            a,button
+                width: 100%
+                display: block
+                padding: 0.8rem 1.5rem
+                color: $dark
+                font-weight: $medium
+                font-size: 1.6rem
+                letter-spacing: 0.5px
+                text-align: left
+                &::first-letter
+                    text-transform: uppercase
+            button
+                color: $error
+.profile
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    background: #fff
+    text-transform: uppercase
+    font-size: 1.6rem
+    line-height: 1
+
+.login-btn
+    display: block
+    font-size: 1.4rem
+    font-weight: $bold
+    border-radius: 10px
+    padding: 1rem 2rem
+    
+
+.header
+    position: relative
+    &.dark-main-header
+        border-bottom: 1px solid rgba(225,225 ,225 ,0.1 )
+        a
+            color: #fff
+        .profile
+            a
+                color: $dark
+        .login-btn
+            background: #fff
+            color: $dark
+        .theme-btn
+            background: #fff
+            color: $dark
+          
+
+    &.light-main-header
+        border-bottom: 1px solid rgba(0,0 ,0 ,0.1 )
+        a
+            color: $dark
+        .profile
+            background-color: $dark
+            color: #fff 
+        .login-btn
+            background: $dark
+            color: #fff
+        .theme-btn
+            background: $dark
+            color: #fff
+          
+

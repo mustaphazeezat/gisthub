@@ -1,0 +1,56 @@
+html
+    font-size: $basefont
+*, *::before, *::after
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+     
+body
+    font-family: 'Oswald', sans-serif
+    font-size: $f-20
+    font-weight: $body
+    -webkit-font-smoothing: antialiased
+p
+    font-family: inherit
+    font-weight: $body
+h2,h3,h4
+    font-weight: $bold
+
+button, a
+    outline: none
+    border: none
+    background: transparent
+    text-decoration: none
+    cursor: pointer
+    font-family: 'Oswald', sans-serif
+    font-weight: $bold
+    line-height: 1
+    &::first-letter
+        text-transform: uppercase
+input,textarea
+   outline: none
+   border: none
+   font-family: 'Oswald', sans-serif
+   font-weight: $medium
+   background: transparent
+   &:placeholder
+        font-family: 'Oswald', sans-serif
+        font-weight: $medium
+ul
+   list-style: none
+img
+   object-fit: cover
+   width: 100%
+   height: 100%
+svg
+   color: inherit
+   vertical-align: middle
+   
+select
+   -webkit-appearance: none
+   -moz-appearance: none
+   appearance: none
+   background-color: transparent
+#root
+    min-height: 100vh
+    transition: background-color 0.3s ease
