@@ -28,7 +28,6 @@
     justify-content: center
     width: 100%
     height: 70vh
-    dark-loader-wrapper
 
 .lds-grid 
     display: inline-block
@@ -92,7 +91,64 @@
 .dark-loader-wrapper
 .light-loader-wrapper
     .lds-grid div 
-        color: $dark
+        background: $dark
+.empty-state
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    width: 100%
+    height: 70vh
+    svg
+        width: 100px
+        height: 100px
+    p
+        margin-top: 2rem
+.paginate-wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+.pagination
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: 4rem
+    padding: 1rem 0
+    background: #fff
+    width: 80%
+    max-width: 400px
+    border-radius: 4px
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px
+    
+    
+    .page
+        border-radius: 4px
+        padding: 0 0.25rem
+        a
+            display: block
+            padding: 0.5rem 1.1rem
+            color: #838CA2
+            font-size: 1.2rem
+            vertical-align: middle
+            cursor: pointer
+            svg
+                width: 20px
+                height: 20px
+        &.active
+            a
+                background:  $dark
+                color: #fff
+        &:last-of-type, &:first-of-type
+            a
+                color: $dark
+        &:not(last-of-type), &:not(first-of-type)
+            a
+                border-radius: 4px
+        &.disabled
+            a
+                color: #C5C9DA
+
+    
 
 @keyframes lds-grid 
     0%, 100% 

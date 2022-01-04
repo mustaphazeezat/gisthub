@@ -29,7 +29,7 @@ export const PostsProvider = ({children}) => {
         return await updateDoc(postDoc, item)
     }
     async function myPosts() {
-        const q = query(postsRef, where("userId", "==", currentUser.uid));
+        const q = query(postsRef, where("userId", "==", currentUser.uid), orderBy("createdAt", "desc"));
         const data = await getDocs(q)
         return data.docs.map((doc) => ({...doc.data(), id: doc.id}))
 

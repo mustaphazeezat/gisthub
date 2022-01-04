@@ -9,6 +9,7 @@ const Post = ({postItem}) => {
     const {post, userId, like, comments  } = postItem
     const [allUser, setAllUser]  = useState([])
     const [name, setName] = useState('')
+    
     useEffect(() => {
         const getPostLists = async () =>{
             try {
