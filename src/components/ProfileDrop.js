@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ClickAwayListener from 'react-click-away-listener'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 const ProfileDrop = ({title}) => {
