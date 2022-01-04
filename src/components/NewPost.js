@@ -18,6 +18,7 @@ const NewPost = ({posted, setPosted}) => {
             setPost(getPost)
             localStorage.removeItem('post')
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -29,6 +30,7 @@ const NewPost = ({posted, setPosted}) => {
             createdAt: null
         }
         setPostDetails(data)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentUser])
 
     const handleChange = (e)=>{

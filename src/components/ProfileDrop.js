@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ClickAwayListener from 'react-click-away-listener'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
@@ -9,18 +10,21 @@ const ProfileDrop = ({title}) => {
     const handleSignOut = () => {
         logOut()
     }
+    
     return (
         <div className='profile-dropdown'>
             <button onClick={()=> setDrop(!drop)} className='profile'>{title}</button>
             {
                 drop? 
-                <div className='drop-wrapper'>
-                    <ul className={`drop-list ${drop? 'drop' : ''}`}>
-                        <li><Link to='/profile' className=''>Profile</Link></li>
-                        <li ><button onClick={handleSignOut}>log out</button></li>
-                    </ul>
-                </div>:
-                null
+                <ClickAwayListener onClickAway={()=>setDrop(false)}>
+                    <div className='drop-wrapper'>
+                        <ul className={`drop-list ${drop? 'drop' : ''}`}>
+                            <li><Link to='/profile' className=''>Profile</Link></li>
+                            <li ><button onClick={handleSignOut}>log out</button></li>
+                        </ul>
+                    </div>
+                </ClickAwayListener>
+                : null
             }
         </div>
     )

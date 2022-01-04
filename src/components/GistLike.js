@@ -14,6 +14,7 @@ const GistLike = ({likes, post}) => {
         const getlike = post.like.find(item => item.likerId === currentUser?.uid)
         setLiked(getlike?.likerId)
         setlikeCount(likes.length)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     const handleChecked = async (e) =>{

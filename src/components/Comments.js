@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ClickAwayListener from 'react-click-away-listener'
 import { useAuth } from '../context/AuthContext'
 import { usePosts } from '../context/PostsContext'
 
@@ -16,12 +17,13 @@ const Comments = ({comments, post, allUsers}) => {
     useEffect(() => {
         setCommentList(comments)
         setCommentCount(comments.length)
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         const getUser = allUsers.find(item => item.id === post.userId)
         setName(getUser?.firstName +' ' + getUser?.lastName )
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allUsers])
     
     const handleComment = async (e) =>{
@@ -59,14 +61,17 @@ const Comments = ({comments, post, allUsers}) => {
                     {error.length > 0? <p className='error-msg'>{error}</p> : ''}
                     {
                         commentCount > 0?
-                        <ul className='comment-list'>
-                            {
-                              commentList.map((item, i) => <li className='comment-item' key={i}>
-                                  <h4 className='name'>{name}</h4>
-                                  <p className='comment'>{item.comment}</p>
-                              </li>)  
-                            }
-                        </ul>:null
+                        <ClickAwayListener onClickAway={()=>setOpen(false)}>
+                            <ul className='comment-list'>
+                                {
+                                commentList.map((item, i) => <li className='comment-item' key={i}>
+                                    <h4 className='name'>{name}</h4>
+                                    <p className='comment'>{item.comment}</p>
+                                </li>)  
+                                }
+                            </ul>
+                        </ClickAwayListener>
+                        :null
                     }
                 </div>: null
             }

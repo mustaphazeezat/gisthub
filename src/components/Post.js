@@ -6,7 +6,7 @@ import GistLike from './GistLike'
 const Post = ({postItem}) => {
     
     const { allUsers } = usePosts()
-    const {post, createdAt, userId, like, comments  } = postItem
+    const {post, userId, like, comments  } = postItem
     const [allUser, setAllUser]  = useState([])
     const [name, setName] = useState('')
     useEffect(() => {
@@ -20,12 +20,15 @@ const Post = ({postItem}) => {
             
         }
         getPostLists()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
     useEffect(() => {
         if (allUser?.length > 0) {
             const getUser = allUser.find(item => item.id === userId)
             setName(getUser?.firstName +' ' + getUser?.lastName )
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allUser])
 
     
