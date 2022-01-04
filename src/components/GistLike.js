@@ -13,13 +13,15 @@ const GistLike = ({likes, post}) => {
     useEffect(() => {
         const getlike = post.like.find(item => item.likerId === currentUser?.uid)
         setLiked(getlike?.likerId)
+        if (getlike?.likerId) {
+            setLike(true)
+        }
         setlikeCount(likes.length)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     const handleChecked = async (e) =>{
-       
-        setLike(!like)
+        setLike(e.target.checked)
         if (!like) {
             const update =[...post.like, {likerId: currentUser.uid}]
             if (likeCount >= 0) {
@@ -45,13 +47,13 @@ const GistLike = ({likes, post}) => {
             } 
             
         }
-        e.preventDefault()
+       
     }
     return (
         <div className='gist-like'>
             {currentUser? 
                 <label className='like-check'>
-                    <input onChange={handleChecked} type='checkbox'/>
+                    <input checked={like} onChange={handleChecked} type='checkbox'/>
                     <span className={`label ${liked === currentUser.uid ? 'liked' : ''}`}><FaHeart /><span>{likeCount}</span></span> 
                 </label>:
                 <div className='like-check'>
