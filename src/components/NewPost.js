@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, Timestamp } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { db } from '../firebase'
@@ -24,8 +24,9 @@ const NewPost = ({posted, setPosted}) => {
         const data ={
             userId: currentUser?.uid,
             post: post,
-            like: 0,
-            comments: []
+            like: [],
+            comments: [],
+            createdAt: null
         }
         setPostDetails(data)
     }, [currentUser])
@@ -49,12 +50,16 @@ const NewPost = ({posted, setPosted}) => {
 
         if (postCount > 304) {
             seterror('maximum character exceeded')
+        } else if(postCount < 3) {
+            seterror('Post cannot be less than 3')
         } else if(!currentUser && postCount <= 304){
             alert('You are not logged in. Login to post your gist')
             localStorage.setItem("post", post)
         }else if(currentUser && postCount <= 304){
             setLoading(true)
-            await addDoc(postCollectionRef, postDetails)
+            setPosted(false)
+            const Postdetailswithtime = {...postDetails, createdAt: Timestamp.now()}
+            await addDoc(postCollectionRef, Postdetailswithtime)
             setPost('')
             setLoading(false)
             setPosted(true)

@@ -46,7 +46,7 @@ const Header = () => {
                     <nav className='page-nav'>
                         <ul className='navigation'>
                             <li><Link to='/my-gist'>My gists</Link></li>
-                            <li><Link to='/Liked'>Liked</Link></li>
+                            <li><Link to='/liked-gist'>Liked</Link></li>
                         </ul>
                     </nav>: null
                 }

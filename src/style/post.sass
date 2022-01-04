@@ -1,7 +1,9 @@
 .main-wrapper
     .post-form
-        width: 70%
+        width: 90%
         margin: 0 auto
+        @media #{ $tablet }
+            width: 70%
         textarea
             display: block
             width: 100%
@@ -26,7 +28,104 @@
             font-weight: $bold
             border-radius: 10px
             padding: 1rem 2rem  
+.post-list
+    margin-top: 3rem
+    
+    .post-item
+        padding: 2rem
+        margin-bottom: 3rem
+        border-radius: 4px
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px
+        border: 1px solid rgba(149, 157, 165, 0.2)
+    .post-header
+        display: flex
+        align-items: center
+        h3
+            font-weight: $medium
+            font-size: $f-18
+            &::first-letter
+                text-transform: uppercase
+        
+    .post
+        font-size: 1.6rem
+        font-weight: $body
+        letter-spacing: 1.5px
+        line-height: 1.5
+        margin-top: 1rem
+    .post-footer
+        position: relative
+        margin-top: 2rem
+        .gist-like
+            position: absolute
+            left: 100px
+            top: 7px
 
+
+.comments
+    margin-right: 2rem
+    position: relative
+    .comment-btn
+        display: flex
+        align-items: center
+        text-align: center
+        padding: 1rem
+        padding-left: 0
+        font-weight: $bold
+        font-size: $f-14
+        letter-spacing: 0.5px
+        margin-left: 0.5rem
+        color: rgba(gray, 0.8)
+    .comment-wrapper
+        // position: absolute
+        max-width: 450px
+        padding: 1rem
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px
+        .error-msg
+            color: #fff
+            font-size: 1.3rem
+            letter-spacing: 1.5px
+            font-weight: $body
+    .comment-input
+        position: relative
+        input
+            width: 100%
+            padding: 0.5rem 1rem
+            padding-right: 11rem
+            font-size: 1.3rem
+            line-height: 1
+            letter-spacing: 1.5px
+            border-bottom: 1px solid rgba(225, 225, 225, 0.4)
+            @media #{ $tablet }
+                font-size: 1.4rem
+            
+        button
+            position: absolute
+            right: 0
+            top: 0
+            letter-spacing: 0.5px
+            padding: 1rem 2rem
+    .comment-list
+        padding: 1.5rem 0
+        margin-left: 2rem
+        li
+            padding: 0.5rem 0
+            display: flex
+            align-items: center
+            h4
+                font-size: 1.3rem
+                letter-spacing: 1px
+                
+                &::first-letter
+                    text-transform: uppercase
+            p
+                font-size: 1.3rem
+                font-weight: $medium
+                letter-spacing: 0.5px
+                padding: 0.5rem 0
+                padding-left: 1rem
+                &::first-letter
+                    text-transform: uppercase
+            
 
 
 
@@ -43,6 +142,16 @@
         color: #fff
     .post-btn
         background: #fff
+    .post-item
+        box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px
+    .comments
+        .comment-input
+            input
+                color: #fff
+            button
+                color: #fff
+
+
 
 .light-main-wrapper
     color: $dark
@@ -53,3 +162,9 @@
     .post-btn
         background: $dark
         color: #fff
+    .comments
+        .comment-input
+            input
+               color: $dark 
+            button
+                color: $dark

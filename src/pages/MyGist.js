@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Loader from '../components/Loader'
-import NewPost from '../components/NewPost'
 import PostList from '../components/PostList'
 import Layout from '../components/wrapppers/Layout'
 import Wrapper from '../components/wrapppers/Wrapper'
 import { usePosts } from '../context/PostsContext'
 
-const Home = () => {
-    const { posts } = usePosts()
-    const [posted, setPosted] = useState(false)
+const MyGist = () => {
+    const {myPosts} = usePosts()
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const [postLists, setPostLists] = useState([])
@@ -17,7 +15,7 @@ const Home = () => {
             try {
                 setError(false)
                 setLoading(true)
-                const data = await posts()
+                const data = await myPosts()
                 setPostLists(data)
                 setLoading(false)
             } catch (error) {
@@ -27,32 +25,12 @@ const Home = () => {
         }
         getPostLists()
     }, [])
-    useEffect(() => {
-        if (posted) {
-            const getPostLists = async () =>{
-                try {
-                    setError(false)
-                    const data = await posts()
-                    setPostLists(data)
-                } catch (error) {
-                    setError(true)
-                }
-                
-            } 
-            getPostLists()
-        }
-        
-    }, [posted])
-    
-    
     return (
         <Layout>
             <Wrapper>
                 {!loading? (
                     <React.Fragment>
-                        <NewPost posted={posted} setPosted={setPosted} />
                         <PostList posts={postLists} />
-                            
                     </React.Fragment>
                     ): <Loader/>
                 }
@@ -61,4 +39,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default MyGist
