@@ -17,7 +17,6 @@ const Header = () => {
     const root = document.querySelector('#root')  
 
     useEffect(() => {
-        
         if(getTheme === null){
             setTheme(darkTheme)
         }else if( getTheme === theme){

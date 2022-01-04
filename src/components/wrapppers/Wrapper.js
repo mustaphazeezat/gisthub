@@ -6,6 +6,7 @@ const Wrapper = ({children}) => {
     const [theme, setTheme] = useState();
     useEffect(() => {
         setTheme(darkTheme)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(() => {
         const getTheme = JSON.parse(localStorage.getItem("theme"));
@@ -14,6 +15,8 @@ const Wrapper = ({children}) => {
         }else{
             setTheme(!theme)
         }
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [darkTheme])
     return (
         <section className={`main-wrapper-y small-y main-wrapper-x main-wrapper ${theme? 'dark-main-wrapper' : 'light-main-wrapper'}`}>

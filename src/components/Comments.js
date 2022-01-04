@@ -21,7 +21,7 @@ const Comments = ({comments, post, allUsers}) => {
     }, [])
 
     useEffect(() => {
-        const getUser = allUsers.find(item => item.id === post.userId)
+        const getUser = allUsers.find(item => item.id === currentUser.uid)
         setName(getUser?.firstName +' ' + getUser?.lastName )
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allUsers])
@@ -30,7 +30,7 @@ const Comments = ({comments, post, allUsers}) => {
         e.preventDefault()
         if (comment.length !== 0) {
             setError('')
-            const update = [...commentList, {comment: comment, userId: currentUser?.uid}]
+            const update = [...commentList, {comment: comment, name: name}]
             try {
                 setLoading(true)
                 await updatePost(post.id, {comments: update})
@@ -47,9 +47,10 @@ const Comments = ({comments, post, allUsers}) => {
     }
     return (
         <div className='comments'>
-            <button className='comment-btn' onClick={() => setOpen(!open)}>{commentCount} Comments</button>
+            <button className='comment-btn' onClick={() => setOpen(open=>!open)}>{commentCount} Comments</button>
             {
                 open? 
+                <ClickAwayListener onClickAway={()=>setOpen(false)}>
                 <div className='comment-wrapper'>
                     {
                         currentUser?
@@ -61,19 +62,19 @@ const Comments = ({comments, post, allUsers}) => {
                     {error.length > 0? <p className='error-msg'>{error}</p> : ''}
                     {
                         commentCount > 0?
-                        <ClickAwayListener onClickAway={()=>setOpen(false)}>
+                        
                             <ul className='comment-list'>
                                 {
                                 commentList.map((item, i) => <li className='comment-item' key={i}>
-                                    <h4 className='name'>{name}</h4>
+                                    <h4 className='name'>{item.name}</h4>
                                     <p className='comment'>{item.comment}</p>
                                 </li>)  
                                 }
                             </ul>
-                        </ClickAwayListener>
+                        
                         :null
                     }
-                </div>: null
+                </div></ClickAwayListener>: null
             }
         </div>
     )
