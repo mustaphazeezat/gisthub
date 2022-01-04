@@ -21,7 +21,7 @@ const Comments = ({comments, post, allUsers}) => {
     }, [])
 
     useEffect(() => {
-        const getUser = allUsers.find(item => item.id === currentUser.uid)
+        const getUser = allUsers.find(item => item.id === currentUser?.uid)
         setName(getUser?.firstName +' ' + getUser?.lastName )
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allUsers])
