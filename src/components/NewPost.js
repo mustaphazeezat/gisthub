@@ -46,6 +46,18 @@ const NewPost = ({posted, setPosted}) => {
         }
 
     }
+    const handlekeyPress = (e) =>{
+        setPost(e.target.value) 
+        setPostCount(post.length)
+        if (postCount > 304) {
+            seterror(`${304 - postCount}`)
+        }else if(postCount <= 304 && postCount <= 294) {
+            seterror('')
+            setPostDetails({...postDetails, post: post})
+        }else if(postCount <= 304){
+            seterror(304 - postCount)
+        }
+    }
     
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -75,6 +87,7 @@ const NewPost = ({posted, setPosted}) => {
                 value={post} 
                 placeholder="What is the latest gist?" 
                 onChange={e => handleChange(e)}
+                onKeyUp={handlekeyPress}
                 ></textarea>
             <p className='error-message'>{error}</p>
             <div className='btn-wrapper'><button className='post-btn' type='submit'>{loading? 'posting..' : 'post gist'}</button></div>
