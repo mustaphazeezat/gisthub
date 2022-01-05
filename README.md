@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# This is a mini social media app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+User can post, like and comments on any post called gist when a user is logged into the app. An authenticated user can also see all their posts and all the posts they have liked.
+
+When a user is not logged in, they can only see posts and the numbers of engagement on them.
+
 
 # The live link
 
