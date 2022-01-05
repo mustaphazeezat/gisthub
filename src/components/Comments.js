@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ClickAwayListener from 'react-click-away-listener'
 import { useAuth } from '../context/AuthContext'
 import { usePosts } from '../context/PostsContext'
+import UserComments from './UserComments'
 
 const Comments = ({comments, post, allUsers}) => {
     const {currentUser} = useAuth()
@@ -61,18 +62,7 @@ const Comments = ({comments, post, allUsers}) => {
                     }
                     {error.length > 0? <p className='error-msg'>{error}</p> : ''}
                     {
-                        commentCount > 0?
-                        
-                            <ul className='comment-list'>
-                                {
-                                commentList.map((item, i) => <li className='comment-item' key={i}>
-                                    <h4 className='name'>{item.name}</h4>
-                                    <p className='comment'>{item.comment}</p>
-                                </li>)  
-                                }
-                            </ul>
-                        
-                        :null
+                        commentCount > 0? <UserComments comments={commentList}/> : null
                     }
                 </div></ClickAwayListener>: null
             }
